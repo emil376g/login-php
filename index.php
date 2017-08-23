@@ -13,6 +13,30 @@ include "connect.php";
         <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <link rel="stylesheet" href="styles.css">
+        <script>
+            function showResult(str) {
+                if (str.length == 0) {
+                    document.getElementById("livesearch").innerHTML = "";
+                    document.getElementById("livesearch").style.border = "0px";
+                    return;
+                }
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else { // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("livesearch").innerHTML = this.responseText;
+                        document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
+                    }
+                }
+                xmlhttp.open("GET", "livesearch.php?q=" + str, true);
+                xmlhttp.send();
+            }
+        </script>
         <title>opgave 1</title>
     </head>
 
@@ -23,8 +47,10 @@ include "connect.php";
                     <p class="LogoTitle"><strong>Skiudstyr.<span class="LogoSpan">dk</span></strong></p>
                 </div>
                 <div class="HeaderMiddle">
-                    <form action="" method="post"> <i class="fa fa-search" aria-hidden="true"></i>
-                        <input placeholder="seacher here" class="seacherPlads"> </form>
+                    <form>
+                        <input type="text" size="30" onkeyup="showResult(this.value)">
+                        <div id="livesearch"></div>
+                    </form>
                 </div>
                 <div class="headerRight"> <i class="fa fa-commenting ChatIcon" aria-hidden="true"> chat</i><i class="fa fa-phone" aria-hidden="true"> mobil#12345678</i> </div> <i class="fa fa-bars PhoneNavBar" aria-hidden="true" style="display: none"></i>
                 <nav class="navBar">
