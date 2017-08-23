@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       else{
 $sql = "insert into members (username, password, email) values ('$username', '$hashed_password', '$email')"; 
       $conn->exec($sql);
-header("location: index.php");
+header("location: ./index.php");
         setcookie($cookie_name, $cookie_value);
   }
       }else{

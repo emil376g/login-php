@@ -1,5 +1,5 @@
 <?php
-include "connect.php";
+include "php/connect.php";
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -12,30 +12,8 @@ include "connect.php";
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles.css">
-        <script>
-            function showResult(str) {
-                if (str.length == 0) {
-                    document.getElementById("livesearch").innerHTML = "";
-                    document.getElementById("livesearch").style.border = "0px";
-                    return;
-                }
-                if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else { // code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("livesearch").innerHTML = this.responseText;
-                        document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
-                    }
-                }
-                xmlhttp.open("GET", "livesearch.php?q=" + str, true);
-                xmlhttp.send();
-            }
+        <link rel="stylesheet" href="css&scss/styles.css">
+        <script src="js/seach.js">
         </script>
         <title>opgave 1</title>
     </head>
@@ -43,7 +21,7 @@ include "connect.php";
     <body>
         <div class="wrapper">
             <header class="header">
-                <div class="headerLeft"><img src="Website/images/logo.png" alt="logo">
+                <div class="headerLeft"><img src="css&scss/Website/images/logo.png" alt="logo">
                     <p class="LogoTitle"><strong>Skiudstyr.<span class="LogoSpan">dk</span></strong></p>
                 </div>
                 <div class="HeaderMiddle">
@@ -63,7 +41,7 @@ include "connect.php";
                     <?php
                 if(isset($_COOKIE[$cookie_name])) {
                     ?>
-                        <li class="NavItem"> <a href="logout.php" class="NavBarLink">logout</a> </li>
+                        <li class="NavItem"> <a href="php/logout.php" class="NavBarLink">logout</a> </li>
                         <?php 
                 }else{
                     ?>
@@ -78,31 +56,31 @@ include "connect.php";
                 <h1 class="SkiOgUdstyr">Ski og udstyr</h1>
                 <h2 class="SkiOgUdstyr">best sellers</h2>
                 <div class="itemSale">
-                    <div class="ItemToSale"> <img src="Website/images/products/product1.jpg" alt="" class="ItemImg">
+                    <div class="ItemToSale"> <img src="css&scss/Website/images/products/product1.jpg" alt="" class="ItemImg">
                         <h4>produkt1</h4>
                         <p>et meget flot produkt fra</p>
                         <br>
                         <p>pris 200.00 kr</p>
                     </div>
-                    <div class="ItemToSale"> <img src="Website/images/products/product2.jpg" alt="" class="ItemImg">
+                    <div class="ItemToSale"> <img src="css&scss/Website/images/products/product2.jpg" alt="" class="ItemImg">
                         <h4>produkt2</h4>
                         <p>et meget flot produkt fra</p>
                         <br>
                         <p>pris 200.00 kr</p>
                     </div>
-                    <div class="ItemToSale"> <img src="Website/images/products/product3.jpg" alt="" class="ItemImg">
+                    <div class="ItemToSale"> <img src="css&scss/Website/images/products/product3.jpg" alt="" class="ItemImg">
                         <h4>produkt3</h4>
                         <p>et meget flot produkt fra</p>
                         <br>
                         <p>pris 200.00 kr</p>
                     </div>
-                    <div class="ItemToSale"> <img src="Website/images/products/product4.jpg" alt="" class="ItemImg">
+                    <div class="ItemToSale"> <img src="css&scss/Website/images/products/product4.jpg" alt="" class="ItemImg">
                         <h4>produkt4</h4>
                         <p>et meget flot produkt fra</p>
                         <br>
                         <p>pris 200.00 kr</p>
                     </div>
-                    <div class="ItemToSale"> <img src="Website/images/products/product5.jpg" alt="" class="ItemImg">
+                    <div class="ItemToSale"> <img src="css&scss/Website/images/products/product5.jpg" alt="" class="ItemImg">
                         <h4>produkt5</h4>
                         <p>et meget flot produkt fra</p>
                         <br>
@@ -136,8 +114,8 @@ include "connect.php";
                     <br> <i class="fa fa-facebook-official" aria-hidden="true"></i> <i class="fa fa-twitter-square" aria-hidden="true"></i> <i class="fa fa-instagram" aria-hidden="true"></i> <i class="fa fa-google-plus" aria-hidden="true"></i> </div>
             </footer>
         </div>
-        <script src="slider.js"></script>
-        <script src="ajax.js"></script>
+        <script src="js/slider.js"></script>
+        <script src="js/ajax.js"></script>
     </body>
 
     </html>

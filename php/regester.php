@@ -1,5 +1,5 @@
 <main class="form">
-    <form action="register.php" method="post" name="register" class="form-inline formControl">
+    <form action="php/register.php" method="post" name="register" class="form-inline formControl">
         <input type="text" name="name" class="form-control" placeholder="username">
         <input type="text" name="email" class="form-control" placeholder="email">
         <input type="password" name="password" class="form-control" placeholder="password">

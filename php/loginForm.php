@@ -14,7 +14,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     if(!empty($result)){
         $cookie_value = true;
         setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/" );
-        header("location: index.php");
+        header("location: ./index.php");
         } else{
             echo "thats not a valid login";
     }
